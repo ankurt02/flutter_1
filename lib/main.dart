@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_1/pages/home_page.dart';
 import 'package:flutter_1/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // main method is the entry point of the code
 void main() {
@@ -27,11 +28,15 @@ class MyApp extends StatelessWidget {
       // home: HomePage(),
 
       // below code is used to change the theme to dark or light
-      themeMode: ThemeMode.light ,
-      theme: ThemeData(primarySwatch: Colors.amber),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        primaryTextTheme: GoogleFonts.latoTextTheme(),
+      ),
       darkTheme: ThemeData(
         brightness: Brightness.light,),
-    initialRoute: "/Home",
+    initialRoute: "/Login",
     routes: {
       "/Home" :(context) => HomePage(), // by default
       "/Login" :(context) => LoginPage(),
