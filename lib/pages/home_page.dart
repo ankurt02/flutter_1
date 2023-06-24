@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const int days = 2; // integer datatype
-    const String name = 'Ankur'; // String type
+    int days = 2; // integer datatype
+    String name = 'Ankur'; // String type
     // double hours = 8.0;
     // bool <varName> = true/false ;
     // num <varName> = can take both float and int
@@ -17,21 +17,24 @@ class HomePage extends StatelessWidget {
     // final : data can be modified
     // difference between final and cosnt: declaring a list as const we cannot change the data, but for final we can change the data
     return Scaffold(
-      
+            
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark), // to set the icon of status bar to dark
-        title: const Text("Flutter App"), // to name the app
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.dark, // to make the status bar transparent
+          statusBarColor: Colors.transparent), // to set the icon of status bar to dark
+
+        title: Text("Flutter App"), // to name the app
         centerTitle: true,  // to position the name to center
       ),
 
       body: Container(
-        child: const Center(
+        child: Center(
           child: 
             Text("Hello! I am $name this is my first flutter application, day: $days"),
         )
       ),
       
-      drawer: const Drawer(),
+      drawer: Drawer(),
     );
   }
 }
