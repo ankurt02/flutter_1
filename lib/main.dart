@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_1/pages/home_page.dart';
 import 'package:flutter_1/pages/login_page.dart';
+import 'package:flutter_1/pages/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // main method is the entry point of the code
@@ -36,13 +37,14 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         brightness: Brightness.light,),
+    // debugShowCheckedModeBanner: false,  // removes the debug banner fro the top
     initialRoute: "/Login",
     routes: {
-      "/Home" :(context) => HomePage(), // by default
-      "/Login" :(context) => LoginPage(),
-
+      MyRoutes.homeRoute :(context) => HomePage(), // by default
+      MyRoutes.loginRoute :(context) => LoginPage(),
     },
-      );
-
+    );
   }
 }
+
+
