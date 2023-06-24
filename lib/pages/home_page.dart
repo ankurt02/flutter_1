@@ -1,4 +1,6 @@
 // ignore: file_names
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,8 +9,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int days = 2; // integer datatype
-    String name = 'Ankur'; // String type
+    // int days = 2; // integer datatype
+    String name = ''; // String type
     // double hours = 8.0;
     // bool <varName> = true/false ;
     // num <varName> = can take both float and int
@@ -30,7 +32,7 @@ class HomePage extends StatelessWidget {
       body: Container(
         child: Center(
           child: 
-            Text("Hello! I am $name this is my first flutter application, day: $days"),
+            Text("Hello"),
         )
       ),
       
