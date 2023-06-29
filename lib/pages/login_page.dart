@@ -57,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
+                  // fontFamily: goo
                 ),
               ),
 
