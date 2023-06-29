@@ -32,7 +32,11 @@ class HomePage extends StatelessWidget {
       body: Container(
         child: Center(
           child: 
-            Text("Hello"),
+            Text(
+              "Hello",
+              style: TextStyle(
+                fontSize: 25,
+              ),),
         )
       ),
       
