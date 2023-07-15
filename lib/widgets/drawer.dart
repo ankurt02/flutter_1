@@ -9,10 +9,10 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl = "https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2022/10/roadtonarutopv_screenshot.png?resize=768%2C432&ssl=1";
+    const imageUrl = "assets/images/naruto.jpeg";
     return Drawer(
       child: Container(
-        color: Colors.white10,
+        color: Color.fromARGB(19, 177, 186, 202),
         child: ListView(
 
           // padding: EdgeInsets.zero,
@@ -25,11 +25,12 @@ class MyDrawer extends StatelessWidget {
                 accountName: Text("Ankur Tiwary"), 
                 accountEmail: Text("7083ankurt@gmail.com"),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(imageUrl),
+                  backgroundImage: AssetImage(imageUrl),
                 ),
               )
             ),
             // Divider(thickness: 10,),
+
             ListTile(
               leading: Padding(
                 padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
@@ -56,7 +57,9 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
+
             ListTile(
+              // onTap: , // this can be used to navigate the screen on-tap
               leading: Padding(
                 padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
                 child: Icon(
@@ -82,6 +85,34 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
+
+            ListTile(
+              leading: Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                child: Icon(
+                  
+                  CupertinoIcons.mail,
+                  
+                  // color: , // to add colors in the icons
+                ),
+              ),
+              title: Padding(
+              
+                padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Text(
+                  "Mail",
+                  // padding: EdgeInsets.zero,
+                  style: GoogleFonts.josefinSans(
+                    fontSize: 20,
+                    color: Color.fromARGB(180, 0, 0, 0),
+                    fontWeight: FontWeight.w500,
+                    // fontFamily: GoogleFonts.josefinSans),
+                  ),
+                
+                ),
+              ),
+            ),
+
             ListTile(
               leading: Padding(
                 padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
@@ -114,3 +145,5 @@ class MyDrawer extends StatelessWidget {
     );
   }
 }
+
+            
