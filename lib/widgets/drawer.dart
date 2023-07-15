@@ -22,8 +22,18 @@ class MyDrawer extends StatelessWidget {
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
                 decoration: BoxDecoration(color: Colors.white10),
-                accountName: Text("Ankur Tiwary"), 
-                accountEmail: Text("7083ankurt@gmail.com"),
+                accountName: Text("Ankur Tiwary",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),  // this will only be for light theme, as textTheme in the theme widget is not working
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500
+                ),), 
+                accountEmail: Text("7083ankurt@gmail.com",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),  // this will only be for light theme, as textTheme in the theme widget is not working
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500
+                ),),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage(imageUrl),
                 ),

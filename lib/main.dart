@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_1/pages/home_page.dart';
 import 'package:flutter_1/pages/login_page.dart';
 import 'package:flutter_1/utils/routes.dart';
+import 'package:flutter_1/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // main method is the entry point of the code
@@ -30,13 +31,9 @@ class MyApp extends StatelessWidget {
 
       // below code is used to change the theme to dark or light
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: GoogleFonts.lato().fontFamily,
-        primaryTextTheme: GoogleFonts.latoTextTheme(),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.light,),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),//ThemeData(
+      //   brightness: Brightness.light,),
     debugShowCheckedModeBanner: false,  // removes the debug banner fro the top
     initialRoute: MyRoutes.homeRoute,  // This will be the initial page 
     routes: {
