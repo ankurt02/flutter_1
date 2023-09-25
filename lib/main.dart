@@ -4,9 +4,10 @@ import 'package:flutter_1/pages/home_page.dart';
 import 'package:flutter_1/pages/login_page.dart';
 import 'package:flutter_1/utils/routes.dart';
 import 'package:flutter_1/widgets/themes.dart';
+// ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
 
-// main method is the entry point of the code
+// main method is the entry point of the codeē
 void main() {
   runApp(MyApp());
 }
