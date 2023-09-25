@@ -12,14 +12,6 @@ class CatalogModel{
       price: 80000, // to change the format to : 80,000, ie. add a comma, the datatype can be changed to string, and then when using in item_widget, it can be used as .toString()
       color: "#000000", 
       image: "https://pngimg.com/uploads/iphone_12/iphone_12_PNG3.png"
-    ),
-    Item(
-      id: 2,
-      name: "Iphone 13 Pro", 
-      desc: "Apple iPhone 13 Pro", 
-      price: 99900,
-      color: "#000000", 
-      image: "https://pngimg.com/uploads/iphone_13/iphone_13_PNG5.png"
     )
   ];
 

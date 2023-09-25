@@ -1,5 +1,5 @@
 // ignore: file_names
-// ignore_for_file: prefer_const_constructors, unused_import
+// ignore_for_file: prefer_const_constructors, unused_import, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,24 +7,33 @@ import 'package:flutter_1/main.dart';
 import 'package:flutter_1/models/catalog.dart';
 import 'package:flutter_1/widgets/drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:convert';
 
 import '../widgets/item_widget.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  // HomePage({super.key});
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    var decodedData = jsonDecode(catalogJson);
+
+    var productsData = decodedData["products"];
+  }
 
   @override
   Widget build(BuildContext context) {
-    // int days = 2; // integer datatype
-    // String name = ''; // String type
-    // double hours = 8.0;
-    // bool <varName> = true/false ;
-    // num <varName> = can take both float and int
-    // var <varName> = can take any data-type, the compiler will decide on what datatype to assign
-    // const : value won't we changed
-    // final : data can be modified
-    // difference between final and cosnt: declaring a list as const we cannot change the data, but for final we can change the data
-
     final dummyList = List.generate(10, (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
