@@ -2,8 +2,31 @@
 
 import 'package:flutter/material.dart';
 
+class CatalogModel{
+
+  static final items = [
+    Item(
+      id: 1, 
+      name: "Iphone 12 Pro", 
+      desc: "Apple iPhone 12 Pro", 
+      price: 80000, // to change the format to : 80,000, ie. add a comma, the datatype can be changed to string, and then when using in item_widget, it can be used as .toString()
+      color: "#000000", 
+      image: "https://pngimg.com/uploads/iphone_12/iphone_12_PNG3.png"
+    ),
+    Item(
+      id: 2,
+      name: "Iphone 13 Pro", 
+      desc: "Apple iPhone 13 Pro", 
+      price: 99900,
+      color: "#000000", 
+      image: "https://pngimg.com/uploads/iphone_13/iphone_13_PNG5.png"
+    )
+  ];
+
+}
+
 class Item {
-  final String id;
+  final int id;
   final String name;
   final String desc;
   final num price;
@@ -23,11 +46,4 @@ class Item {
   // https://stackoverflow.com/questions/66639287/how-to-create-a-constructor-in-flutter-with-null-safety
 }
 
-final products = [Item(
-  id: "s001", 
-  name: "Iphone 12 Pro", 
-  desc: "Apple iPhone 12 Pro", 
-  price: 80000, 
-  color: "#000000", 
-  image: "C:\\Users\\acer\\Desktop\\Flutter\\Youtube\\CodePur\\flutter_1\\assets\\images\\apple-iphone-12-dummyapplefsn-original-imafwg8duby8qbn4-removebg-preview.png")
-];
+
