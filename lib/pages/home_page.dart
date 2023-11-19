@@ -1,23 +1,25 @@
-// ignore: file_names
-// ignore_for_file: prefer_const_constructors, unused_import, unused_local_variable
+// ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_1/main.dart';
-import 'package:flutter_1/models/catalog.dart';
 import 'package:flutter_1/widgets/drawer.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:convert';
+// import 'package:flutter_catalog/models/catalog.dart';
+// import 'package:flutter_catalog/widgets/drawer.dart';
+// import 'package:flutter_catalog/widgets/item_widget.dart';
 
+import '../models/catalog.dart';
 import '../widgets/item_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  // HomePage({super.key});
+  final int days = 30;
+
+  final String name = "Codepur";
 
   @override
   void initState() {
@@ -26,44 +28,35 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
-    var decodedData = jsonDecode(catalogJson);
-
+    await Future.delayed(Duration(seconds: 2));
+    final catalogJson =
+        await rootBundle.loadString("assets/files/catalog.json");
+    final decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
+    CatalogModel.items = List.from(productsData)
+        .map<Item>((item) => Item.fromMap(item))
+        .toList();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(10, (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor: Colors.white60,
-        // elevation: 1.5, // to remove the shadow and the elevation effect from the app bar
-        // iconTheme: IconThemeData(color: Colors.black),
-
-        systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarIconBrightness:
-                Brightness.dark, // to make the status bar transparent
-            statusBarColor:
-                Colors.transparent), // to set the icon of status bar to dark
-        title: Text("Flutter App",
-            style: GoogleFonts.nunito(
-                color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.w500,
-                fontSize: 22)), // to name the app
-        centerTitle: true, // to position the name to center
+        title: Text("Catalog App"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: dummyList.length,
-          // how the items will be displayed
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: dummyList[index],
-            );
-          },
-        ),
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel.items.length,
+                itemBuilder: (context, index) => ItemWidget(
+                  item: CatalogModel.items[index],
+                ),
+              )
+            : Center(
+                child: CircularProgressIndicator(),
+              ),
       ),
       drawer: MyDrawer(),
     );

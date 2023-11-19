@@ -16,13 +16,13 @@ class ItemWidget extends StatelessWidget {
           print("${item.name} pressed");
         },
         leading: Image.network(item.image),
-        title: Text(item.name),
+        title: Text(item.name,style: TextStyle(fontWeight: FontWeight.w500),),
         subtitle: Text(item.desc),
         trailing: Text(
           "\₹${item.price}",
           textScaleFactor: 1.5,
           style: TextStyle(
-            color: Color.fromARGB(255, 86, 23, 220),
+            color: Color.fromARGB(255, 26, 7, 137),
             fontWeight: FontWeight.bold,
           ),
         ),
