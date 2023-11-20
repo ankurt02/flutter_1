@@ -1,9 +1,7 @@
-// ignore_for_file: unnecessary_null_comparison
-
 import 'dart:convert';
 
 class CatalogModel {
-  static List<Item>  items = [];
+  static List<Item> items = [];
 }
 
 class Item {
@@ -53,6 +51,7 @@ class Item {
   }
 
   factory Item.fromMap(Map<String, dynamic> map) {
+    // ignore: unnecessary_null_comparison
     // if (map == null) return null;
 
     return Item(
