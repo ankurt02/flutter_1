@@ -1,0 +1,8 @@
+A Dart VM Service on sdk gphone64 x86 64 is available at: http://127.0.0.1:50123/TL7uxPHkToE=/
+The Flutter DevTools debugger and profiler on sdk gphone64 x86 64 is available at: http://127.0.0.1:9102?uri=http://127.0.0.1:50123/TL7uxPHkToE=/
+I/Choreographer( 7633): Skipped 44 frames!  The application may be doing too much work on its main thread.
+I/OpenGLRenderer( 7633): Davey! duration=972ms; Flags=1, FrameTimelineVsyncId=55928, IntendedVsync=2018934757026, Vsync=2019101423686, InputEventId=0, HandleInputStart=2019143100966, AnimationStart=2019143128360, PerformTraversalsStart=2019143131527, DrawStart=2019156314651, FrameDeadline=2018951423692, FrameInterval=2019116116893, FrameStartTime=16666666, SyncQueued=2019420278664, SyncStart=2019433735967, IssueDrawCommandsStart=2019515958962, SwapBuffers=2019623438321, FrameCompleted=2019920227732, DequeueBufferDuration=196757502, QueueBufferDuration=1053294, GpuCompleted=2019920227732, SwapBuffersCompleted=2019913359986, DisplayPresentTime=0, CommandSubmissionCompleted=2019623438321,
+D/EGL_emulation( 7633): app_time_stats: avg=38.41ms min=4.19ms max=196.71ms count=23
+D/EGL_emulation( 7633): app_time_stats: avg=370.82ms min=31.83ms max=1048.03ms count=3
+D/EGL_emulation( 7633): app_time_stats: avg=486.09ms min=37.55ms max=1011.21ms count=3
+D/EGL_emulation( 7633): app_time_stats: avg=275.92ms min=176.92ms max=368.06ms count=4
