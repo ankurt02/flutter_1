@@ -59,10 +59,11 @@ class CatalogItem extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ButtonStyle(
+                        // backgroundColor: MaterialStatePropertyAll(Colors.black87),  // to set the color of the button
                         animationDuration: Duration(milliseconds: 100),
                         shape: MaterialStateProperty.all(StadiumBorder())
                       ),
-                      child: Text("Buy")
+                      child: const Text("Add to cart"),
                   )
                 ],
               ).p4()

@@ -9,52 +9,55 @@ class HomeDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      child: Scaffold(
-        appBar: AppBar(
-            leading: IconButton(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade200,
+        elevation: 0.0,
+        leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () => Navigator.of(context).pop(),
-        )),
-        bottomNavigationBar: Container(
-          color:  Color.fromARGB(255, 240, 240, 240),
-          child: ButtonBar(
-            alignment: MainAxisAlignment.spaceBetween,
-            // buttonPadding: EdgeInsets.all(8),
+        )
+      ),
+      backgroundColor: Colors.grey.shade200,
+      bottomNavigationBar: Container(
+        color:  Colors.white,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.spaceBetween,
+          // buttonPadding: EdgeInsets.all(8),
 
 
-            // at this place, insted of price, an add to cart button can be added
-            children: [
-              "₹${catalog.price}".text.semiBold.xl3.make(),
-              ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 204, 0)),
-                    // elevation: MaterialStateProperty.all(4),
-                      animationDuration: Duration(milliseconds: 100),
-                      shape: MaterialStateProperty.all(
-                        const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10)
-                          )
+          // at this place, insted of price, an add to cart button can be added
+          children: [
+            "₹${catalog.price}".text.semiBold.xl3.make(),
+            ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 204, 0)),
+                  // elevation: MaterialStateProperty.all(4),
+                    animationDuration: Duration(milliseconds: 100),
+                    shape: MaterialStateProperty.all(
+                      const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(30)
                         )
                       )
+                    )
+                ),
+                child: Text(
+                  "Add to cart",
+                  style: GoogleFonts.openSans(
+                    fontSize: 26,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w500
                   ),
-                  child: Text(
-                    "Buy Now",
-                    style: GoogleFonts.openSans(
-                      fontSize: 26,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w500
-                    ),
-                  )
-            )
-            .wh(context.screenWidth/2, 60)
-            ],
-          ).py0(),
-        ),
-        body: Column(
+                )
+          )
+          .wh(context.screenWidth/2, 60)
+          ],
+        ).py0(),
+      ),
+      body: SafeArea(
+        child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 10, top: 4),
@@ -70,7 +73,7 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.convey,
                 child: Container(
                   width: context.screenWidth,
-                  color: Color.fromARGB(255, 240, 240, 240),
+                  color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 40),
                     child: Column(
@@ -82,6 +85,11 @@ class HomeDetailPage extends StatelessWidget {
                             .textStyle(context.captionStyle)
                             .make(),
                         12.heightBox,
+                        "Duo tempor et sed et eos ipsum, sea amet accusam amet stet diam vero labore duo. Kasd kasd diam accusam est ipsum voluptua gubergren ea nonumy. Ea lorem ipsum lorem no, dolor no stet dolor lorem no dolor dolore lorem et. Sadipscing lorem vero labore amet sea duo magna stet."
+                        .text
+                        .textStyle(context.captionStyle)
+                        .make()
+                        .p16()
                       ],
                     ),
                   ),

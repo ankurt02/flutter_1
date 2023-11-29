@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
+import 'package:flutter_1/pages/cart_page.dart';
 import 'package:flutter_1/pages/home_page.dart';
 import 'package:flutter_1/pages/login_page.dart';
 import 'package:flutter_1/utils/routes.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
     routes: {
       MyRoutes.homeRoute :(context) => HomePage(), // by default
       MyRoutes.loginRoute :(context) => LoginPage(),
+      MyRoutes.cartRoute :(context) => CartPage(),
     },
     );
   }
