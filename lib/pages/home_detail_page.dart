@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_1/widgets/home_widgets/add_to_cart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_1/models/catalog.dart';
@@ -29,30 +30,7 @@ class HomeDetailPage extends StatelessWidget {
           // at this place, insted of price, an add to cart button can be added
           children: [
             "₹${catalog.price}".text.semiBold.xl3.make(),
-            ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 204, 0)),
-                  // elevation: MaterialStateProperty.all(4),
-                    animationDuration: Duration(milliseconds: 100),
-                    shape: MaterialStateProperty.all(
-                      const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(30)
-                        )
-                      )
-                    )
-                ),
-                child: Text(
-                  "Add to cart",
-                  style: GoogleFonts.openSans(
-                    fontSize: 24,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w500
-                  ),
-                )
-          )
-          .wh(context.screenWidth/2, 60)
+            AddToCart(catalog: catalog,).wh(context.screenWidth/2, 60)
           ],
         ).py0(),
       ),

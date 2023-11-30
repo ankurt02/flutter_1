@@ -59,7 +59,7 @@ class _CartTotal extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-           Text(
+          Text(
             "₹${_cart.totalPrice}",
             style: const TextStyle(
               fontSize: 20,
@@ -75,33 +75,57 @@ class _CartTotal extends StatelessWidget {
               // left: 6,
               // right: 6
             ),
-            child: ElevatedButton(
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  backgroundColor: Colors.grey.shade300,
-                  content: const Text(
-                    "This feature is not yet supported",
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w400,
+            child: _cart.items.isEmpty
+                ? ElevatedButton(
+                    clipBehavior: Clip.antiAlias,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Color.fromARGB(255, 255, 204, 0)),
+                        shape: MaterialStateProperty.all(
+                            const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30))))),
+                    child: const Text(
+                      "Back to shop",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black87,
+                      ),
                     ),
-                  ),
-                ));
-              },
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 255, 204, 0)),
-                  shape: MaterialStateProperty.all(const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30))))),
-              child: const Text(
-                "Buy",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
-                ),
-              ),
-            ).wh(context.screenWidth / 2.6, double.infinity),
+                  ).wh(context.screenWidth / 2, double.infinity)
+                : ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: Colors.grey.shade300,
+                        content: const Text(
+                          "This feature is not yet supported",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ));
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Color.fromARGB(255, 255, 204, 0)),
+                        shape: MaterialStateProperty.all(
+                            const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30))))),
+                    child: const Text(
+                      "Buy",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ).wh(context.screenWidth / 2.6, double.infinity),
           )
         ],
       ),
@@ -120,18 +144,54 @@ class __CartListState extends State<_CartList> {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _cart.items?.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: const Icon(Icons.done),
-        trailing: IconButton(
-          icon: const Icon(Icons.remove_circle_outline_rounded),
-          onPressed: () {},
-        ),
-        title: Text(
-          _cart.items[index].name,
-        ),
-      ),
-    );
+    return _cart.items.isEmpty
+        ? Scaffold(
+            // child: Icon(Icons.shopping_cart_outlined),
+            backgroundColor: Colors.grey.shade100,
+            body: Center(
+              child: Container(
+                // alignment: ,
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.shopping_cart_outlined,
+                      color: Colors.black54,
+                      size: 120,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black38,
+                        )
+                      ],
+                    ),
+                    Text(
+                      "Nothing in you Cart!",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.italic),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        : ListView.builder(
+            itemCount: _cart.items?.length,
+            itemBuilder: (context, index) => ListTile(
+              leading: const Icon(Icons.done),
+              trailing: IconButton(
+                icon: const Icon(Icons.remove_circle_outline_rounded),
+                onPressed: () {
+                  _cart.remove(_cart.items[index]);
+                  setState(() {});
+                },
+              ),
+              title: Text(
+                _cart.items[index].name,
+              ),
+            ),
+          );
   }
 }
