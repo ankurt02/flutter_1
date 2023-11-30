@@ -46,7 +46,7 @@ class HomeDetailPage extends StatelessWidget {
                 child: Text(
                   "Add to cart",
                   style: GoogleFonts.openSans(
-                    fontSize: 26,
+                    fontSize: 24,
                     color: Colors.black87,
                     fontWeight: FontWeight.w500
                   ),
