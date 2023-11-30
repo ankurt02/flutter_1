@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_1/models/cart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -52,19 +53,20 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
+    final _cart = CartModel();
+    return SizedBox(
       height: 75,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Text(
-            "₹${999}",
-            style: TextStyle(
+           Text(
+            "₹${_cart.totalPrice}",
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: Colors.black87,
             ),
-            ),
+          ),
           50.widthBox,
           Padding(
             padding: const EdgeInsets.only(
@@ -75,29 +77,22 @@ class _CartTotal extends StatelessWidget {
             ),
             child: ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    backgroundColor: Colors.grey.shade300,
-                    content: const Text(
-                      "This feature is not yet supported",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w400,
-                      ),
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  backgroundColor: Colors.grey.shade300,
+                  content: const Text(
+                    "This feature is not yet supported",
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.w400,
                     ),
-                  )
-                );
-              }, 
+                  ),
+                ));
+              },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 204, 0)),
-                shape: MaterialStateProperty.all(
-                        const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(30)
-                          )
-                        )
-                      )
-              ),
+                  backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 255, 204, 0)),
+                  shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30))))),
               child: const Text(
                 "Buy",
                 style: TextStyle(
@@ -105,15 +100,14 @@ class _CartTotal extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   color: Colors.black87,
                 ),
-                ),
-            ).wh(context.screenWidth/2.6, double.infinity),
+              ),
+            ).wh(context.screenWidth / 2.6, double.infinity),
           )
         ],
       ),
     );
   }
 }
-
 
 class _CartList extends StatefulWidget {
   const _CartList({super.key});
@@ -123,19 +117,20 @@ class _CartList extends StatefulWidget {
 }
 
 class __CartListState extends State<_CartList> {
+  final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: _cart.items?.length,
       itemBuilder: (context, index) => ListTile(
         leading: const Icon(Icons.done),
         trailing: IconButton(
           icon: const Icon(Icons.remove_circle_outline_rounded),
           onPressed: () {},
-         ),
-         title: const Text(
-          "Item 1",
-         ),
+        ),
+        title: Text(
+          _cart.items[index].name,
+        ),
       ),
     );
   }
