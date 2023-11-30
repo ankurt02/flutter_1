@@ -11,12 +11,15 @@ class CartPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_back_ios_new)),
         title: const Text(
           "Cart",
           style: TextStyle(
             color: Color.fromARGB(183, 3, 3, 3),
             fontWeight: FontWeight.w600,
-            fontSize: 28
+            fontSize: 22
           ),
         ),
         centerTitle: true,
