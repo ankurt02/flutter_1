@@ -12,15 +12,30 @@ class MyTheme {
         color: Colors.white,
         elevation: 0.5,
         iconTheme: IconThemeData(color: Colors.black),
-        titleTextStyle:Theme.of(context).appBarTheme.titleTextStyle?.copyWith(
-          // fontFamily: 'OpenSans',
-          fontSize: 20,
-        ),
-        
+        titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle?.copyWith(
+              // fontFamily: 'OpenSans',
+              fontSize: 20,
+            ),
+
         // iconTheme: Theme.of(context).textTheme, // working in the video but not in mine
       ));
 
-      static ThemeData darkTheme(BuildContext context) => ThemeData(
-        brightness: Brightness.dark,
-      );
+  static ThemeData darkTheme(BuildContext context) => ThemeData(
+      primarySwatch: Colors.blue,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      // primaryTextTheme: GoogleFonts.latoTextTheme(),
+      cardColor: Colors.black87,
+      canvasColor: darkBluishColor,
+      appBarTheme: AppBarTheme(
+        color: Colors.black,
+        elevation: 0.5,
+        iconTheme: IconThemeData(color: Colors.black),
+        titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle?.copyWith(
+              // fontFamily: 'OpenSans',
+              fontSize: 20,
+            ),
+      ));
+
+  static Color creamColor = Color(0xfff5f5f5);
+  static Color darkBluishColor = Color(0xff403b58);
 }

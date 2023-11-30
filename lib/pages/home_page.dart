@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 244, 244, 244),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
         backgroundColor: Colors.amber.shade300,
@@ -57,7 +58,6 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black54,
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 244, 244, 244),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(12),
